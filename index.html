@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jesus Never Fails</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Jesus Never Fails">
+<meta name="theme-color" content="#f9dcc0">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}*,*::before,*::after{box-sizing:border-box}body{margin:0;-webkit-text-size-adjust:100%}img{max-width:100%}[hidden]{display:none!important}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Nunito:wght@500;700;800&display=swap">
+<style>
+/* Layout: Grace Up–style light world. Peach dawn gradient, illustrated hills header, one rounded card, tab bar at thumb reach. Single light theme by choice. */
+:root {
+  --peach: #f9dcc0;
+  --cream: #fdf3e7;
+  --mint: #d8f0ee;
+  --teal: #4fb8c6;
+  --teal-deep: #2b8f9e;
+  --leaf: #6aa84f;
+  --ink: #2e2a26;
+  --soft: #7d7268;
+  --white: #ffffff;
+  --display: "Lora", Georgia, "Times New Roman", serif;
+  --ui: "Nunito", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+html, body { background: var(--cream); color: var(--ink); }
+body {
+  font-family: var(--ui); font-size: 16px;
+  background: linear-gradient(180deg, var(--peach) 0%, var(--cream) 46%, var(--cream) 100%) fixed;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+  min-height: 100%;
+}
+.wrap { max-width: 520px; margin: 0 auto; padding-block: 18px 128px; display: flex; flex-direction: column; gap: 18px; }
+
+/* Header */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 8px; font-family: var(--display); font-size: 21px; font-weight: 600; line-height: 1.1; min-width: 0; }
+.brand svg { width: 38px; height: 38px; flex: none; filter: drop-shadow(0 2px 4px rgba(180,120,40,.25)); }
+.streak { display: flex; align-items: center; gap: 6px; background: var(--white); border-radius: 999px; padding: 7px 13px; font-weight: 800; font-size: 14px; box-shadow: 0 2px 10px rgba(180,120,70,.12); font-variant-numeric: tabular-nums; }
+.streak svg { width: 16px; height: 16px; }
+
+.hello h1 { font-family: var(--display); font-weight: 600; font-size: 30px; line-height: 1.15; margin: 0; text-wrap: balance; }
+.hello p { margin: 4px 0 0; color: var(--soft); font-weight: 700; font-size: 15px; }
+
+/* Scene */
+.scene { position: relative; border-radius: 28px; overflow: hidden; height: 150px; background: linear-gradient(180deg, #fde7cf, #fbd9b5); }
+.scene svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.scene .label { position: absolute; left: 18px; bottom: 16px; right: 18px; display: flex; justify-content: space-between; align-items: end; gap: 10px; }
+.scene .label b { font-family: var(--display); font-weight: 600; font-size: 19px; color: var(--ink); }
+.scene .label span { font-size: 13px; font-weight: 800; color: var(--ink); background: rgba(255,255,255,.75); border-radius: 999px; padding: 4px 10px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* Progress */
+.progress { display: flex; flex-direction: column; gap: 6px; }
+.bar { height: 8px; border-radius: 99px; background: rgba(106,168,79,.18); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; border-radius: 99px; background: var(--leaf); transition: width .5s ease; }
+.progress small { color: var(--soft); font-weight: 700; font-size: 13px; }
+
+/* Card */
+.card { background: var(--white); border-radius: 26px; padding: 12px; box-shadow: 0 10px 30px rgba(170,110,60,.14); display: flex; flex-direction: column; gap: 12px; }
+.card .head { display: flex; justify-content: space-between; align-items: center; padding: 4px 6px 0; gap: 8px; }
+.card .head b { font-family: var(--display); font-size: 18px; font-weight: 600; }
+.card .head span { font-size: 13px; font-weight: 700; color: var(--soft); white-space: nowrap; }
+.cardimg { border: 0; padding: 0; background: var(--mint); border-radius: 18px; overflow: hidden; cursor: zoom-in; display: block; width: 100%; }
+.cardimg img { display: block; width: 100%; height: auto; aspect-ratio: 9 / 20.5; object-fit: cover; }
+.daynav { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+button { font-family: var(--ui); cursor: pointer; }
+.pill { min-height: 46px; border-radius: 999px; border: 0; font-weight: 800; font-size: 15px; padding: 0 18px; }
+.pill.ghost { background: var(--mint); color: var(--teal-deep); }
+.pill.primary { background: var(--teal); color: var(--white); box-shadow: 0 6px 16px rgba(79,184,198,.35); }
+.pill.done { background: rgba(106,168,79,.15); color: #3f7a2a; box-shadow: none; }
+#amen { width: 100%; }
+button:focus-visible { outline: 3px solid var(--teal-deep); outline-offset: 2px; }
+
+/* Library */
+.lib h2 { font-family: var(--display); font-weight: 600; font-size: 26px; margin: 0; }
+.lib p { margin: 4px 0 0; color: var(--soft); font-weight: 700; font-size: 15px; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.thumb { position: relative; border: 0; padding: 0; border-radius: 14px; overflow: hidden; background: var(--mint); box-shadow: 0 4px 12px rgba(170,110,60,.12); }
+.thumb img { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; object-position: top; }
+.thumb span { position: absolute; left: 6px; top: 6px; background: rgba(255,255,255,.9); border-radius: 99px; font-size: 11px; font-weight: 800; padding: 2px 7px; font-variant-numeric: tabular-nums; }
+.thumb.today { outline: 3px solid var(--teal); outline-offset: -3px; }
+.thumb .tick { left: auto; right: 6px; background: var(--leaf); color: var(--white); }
+
+/* Tab bar */
+.tabs {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 5;
+  padding: 8px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+.tabs .row { max-width: 360px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: rgba(255,255,255,.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-radius: 999px; padding: 6px; box-shadow: 0 8px 24px rgba(120,80,40,.16); }
+.tab { border: 0; background: transparent; border-radius: 999px; min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 800; font-size: 15px; color: var(--soft); }
+.tab svg { width: 20px; height: 20px; }
+.tab[aria-selected="true"] { background: var(--mint); color: var(--teal-deep); }
+
+/* Reader */
+.reader { position: fixed; inset: 0; z-index: 20; overflow: auto; background: linear-gradient(180deg, var(--peach), var(--cream) 40%); -webkit-overflow-scrolling: touch; }
+.reader .bar2 { position: sticky; top: 0; z-index: 2; padding: calc(10px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px)); display: flex; justify-content: space-between; align-items: center; background: rgba(249,220,192,.9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.back { border: 0; background: transparent; font-weight: 800; font-size: 16px; color: var(--ink); display: flex; align-items: center; gap: 4px; min-height: 44px; padding: 0 4px; }
+.reader .bar2 span { font-weight: 800; font-size: 14px; color: var(--soft); font-variant-numeric: tabular-nums; }
+.reader img { display: block; width: calc(100% - 2 * max(16px, env(safe-area-inset-left, 0px))); max-width: 760px; margin: 8px auto calc(24px + env(safe-area-inset-bottom, 0px)); border-radius: 18px; box-shadow: 0 10px 30px rgba(170,110,60,.18); }
+
+.sparkle { animation: twinkle 3s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.sparkle:nth-of-type(2) { animation-delay: 1s; } .sparkle:nth-of-type(3) { animation-delay: 2s; }
+@keyframes twinkle { 0%,100% { opacity: .35; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.1); } }
+@media (prefers-reduced-motion: reduce) { .sparkle { animation: none; } .bar i { transition: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand">
+      <svg viewBox="0 0 40 40" role="img" aria-label="Lampstand">
+        <defs><linearGradient id="gold" gradientUnits="userSpaceOnUse" x1="0" y1="8" x2="0" y2="38"><stop offset="0" stop-color="#f6c453"/><stop offset="1" stop-color="#c98a1c"/></linearGradient></defs>
+        <g fill="none" stroke="url(#gold)" stroke-width="2" stroke-linecap="round">
+          <path d="M5 13 Q5 25 20 25 Q35 25 35 13"/>
+          <path d="M10 13 Q10 22 20 22 Q30 22 30 13"/>
+          <path d="M15 13 Q15 19 20 19 Q25 19 25 13"/>
+          <path d="M20 13 V34"/>
+        </g>
+        <path d="M13 38 h14 l-3 -4.5 h-8 z" fill="url(#gold)"/>
+        <g fill="#d99a26"><rect x="3.5" y="11" width="3" height="2.5" rx=".8"/><rect x="8.5" y="11" width="3" height="2.5" rx=".8"/><rect x="13.5" y="11" width="3" height="2.5" rx=".8"/><rect x="18.5" y="11" width="3" height="2.5" rx=".8"/><rect x="23.5" y="11" width="3" height="2.5" rx=".8"/><rect x="28.5" y="11" width="3" height="2.5" rx=".8"/><rect x="33.5" y="11" width="3" height="2.5" rx=".8"/></g>
+        <g fill="#f08a3c"><path d="M5 10c-2-2-1.2-4.5 0-7 1.2 2.5 2 5 0 7z"/><path d="M10 10c-2-2-1.2-4.5 0-7 1.2 2.5 2 5 0 7z"/><path d="M15 10c-2-2-1.2-4.5 0-7 1.2 2.5 2 5 0 7z"/><path d="M20 10c-2-2-1.2-4.5 0-7 1.2 2.5 2 5 0 7z"/><path d="M25 10c-2-2-1.2-4.5 0-7 1.2 2.5 2 5 0 7z"/><path d="M30 10c-2-2-1.2-4.5 0-7 1.2 2.5 2 5 0 7z"/><path d="M35 10c-2-2-1.2-4.5 0-7 1.2 2.5 2 5 0 7z"/></g>
+        <g fill="#ffe08a"><circle cx="5" cy="8.3" r=".9"/><circle cx="10" cy="8.3" r=".9"/><circle cx="15" cy="8.3" r=".9"/><circle cx="20" cy="8.3" r=".9"/><circle cx="25" cy="8.3" r=".9"/><circle cx="30" cy="8.3" r=".9"/><circle cx="35" cy="8.3" r=".9"/></g>
+      </svg>
+      <span>Jesus Never Fails</span>
+    </div>
+    <div class="streak" title="Days in a row you've proclaimed">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1c1 3 4 4 4 8a4 4 0 1 1-8 0c0-2 1-3 2-4 0 2 1 2 1 2 0-3 0-4 1-6z" fill="#f08a3c"/></svg>
+      <span id="streak">0</span>&nbsp;days
+    </div>
+  </div>
+
+  <!-- TODAY VIEW -->
+  <section id="view-today" class="today-view" style="display:flex;flex-direction:column;gap:18px">
+    <div class="hello">
+      <h1 id="greet">Good morning, Bobby</h1>
+      <p id="date">Tuesday 27 October</p>
+    </div>
+
+    <div class="scene" aria-hidden="true">
+      <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice">
+        <circle cx="300" cy="78" r="34" fill="#ffd36b"/>
+        <circle cx="300" cy="78" r="48" fill="#ffd36b" opacity=".25"/>
+        <path d="M0 110 C70 70 140 72 210 98 S330 118 400 92 V150 H0Z" fill="#a7d38a"/>
+        <path d="M0 126 C90 100 180 104 260 120 S360 132 400 118 V150 H0Z" fill="#87c06a"/>
+        <path d="M0 140 C120 128 260 130 400 138 V150 H0Z" fill="#f3e4a8"/>
+        <g fill="#ffffff">
+          <path class="sparkle" d="M70 30 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z"/>
+          <path class="sparkle" d="M190 22 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/>
+          <path class="sparkle" d="M360 30 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5 -6 -6 -2.5 6 -2.5z"/>
+        </g>
+      </svg>
+      <div class="label"><b>Speak life today</b><span id="cycle">Day 1 of 33</span></div>
+    </div>
+
+    <div class="progress">
+      <div class="bar"><i id="barfill"></i></div>
+      <small id="progtext">0 of 33 proclaimed</small>
+    </div>
+
+    <div class="card">
+      <div class="head"><b id="cardtitle">Today's Proclamation</b><span id="cardnum">Card 1</span></div>
+      <button class="cardimg" id="card" type="button" aria-label="Read this proclamation full screen">
+        <img id="img" src="cards/01.jpg" alt="Proclamation card">
+      </button>
+      <button class="pill primary" id="amen" type="button">Amen, I proclaimed it</button>
+      <div class="daynav">
+        <button class="pill ghost" id="prev" type="button">‹ Yesterday</button>
+        <button class="pill ghost" id="next" type="button">Tomorrow ›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIBRARY VIEW -->
+  <section id="view-lib" class="lib" hidden style="flex-direction:column;gap:16px">
+    <div>
+      <h2>All Proclamations</h2>
+      <p>33 cards. Tap any card to read it.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+</div>
+
+<nav class="tabs" aria-label="Sections">
+  <div class="row" role="tablist">
+    <button class="tab" id="tab-today" role="tab" aria-selected="true" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      Today
+    </button>
+    <button class="tab" id="tab-lib" role="tab" aria-selected="false" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="9" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
+      Library
+    </button>
+  </div>
+</nav>
+
+<div class="reader" id="reader" hidden>
+  <div class="bar2">
+    <button class="back" id="back" type="button">‹ Go Back</button>
+    <span id="rnum">Card 1 of 33</span>
+  </div>
+  <img id="rimg" src="cards/01.jpg" alt="Proclamation card, full size">
+</div>
+
+<script>
+const TOTAL = 33;
+const NAME = "Bobby";
+const START = Date.UTC(2026, 9, 27); // cycle begins 27 Oct 2026 with card 1
+const $ = id => document.getElementById(id);
+const src = i => `cards/${String(i + 1).padStart(2, "0")}.jpg`;
+const dayKey = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+const daysSinceStart = d => Math.floor((Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) - START) / 86400000);
+const cardFor = d => ((daysSinceStart(d) % TOTAL) + TOTAL) % TOTAL;
+
+function load() { try { return JSON.parse(localStorage.getItem("proclaimed") || "{}"); } catch (e) { return {}; } }
+function save(o) { try { localStorage.setItem("proclaimed", JSON.stringify(o)); } catch (e) {} }
+let done = load(); // { "2026-10-27": cardIndex }
+let offset = 0;
+
+function viewDate() { const d = new Date(); d.setDate(d.getDate() + offset); return d; }
+
+function streak() {
+  let n = 0; const d = new Date();
+  if (!done[dayKey(d)]) d.setDate(d.getDate() - 1); // today not yet done doesn't break the streak
+  while (done[dayKey(d)] !== undefined) { n++; d.setDate(d.getDate() - 1); }
+  return n;
+}
+function cardsDoneThisCycle() {
+  const now = new Date(); const cycleStart = new Date(now); cycleStart.setDate(now.getDate() - cardFor(now));
+  const set = new Set();
+  for (const [k, v] of Object.entries(done)) { const [y,m,dd] = k.split("-").map(Number); if (new Date(y, m-1, dd) >= new Date(cycleStart.getFullYear(), cycleStart.getMonth(), cycleStart.getDate())) set.add(v); }
+  return set;
+}
+
+function render() {
+  const now = new Date(), d = viewDate(), i = cardFor(d), key = dayKey(d);
+  const h = now.getHours();
+  $("greet").textContent = `${h < 12 ? "Good morning" : h < 17 ? "Good afternoon" : "Good evening"}, ${NAME}`;
+  $("date").textContent = d.toLocaleDateString(undefined, { weekday: "long", day: "numeric", month: "long" });
+  $("cycle").textContent = `Day ${cardFor(now) + 1} of ${TOTAL}`;
+  $("cardtitle").textContent = offset === 0 ? "Today's Proclamation" : offset === -1 ? "Yesterday's Proclamation" : offset === 1 ? "Tomorrow's Proclamation" : offset < 0 ? "Earlier Proclamation" : "Coming Proclamation";
+  $("cardnum").textContent = `Card ${i + 1} of ${TOTAL}`;
+  $("img").src = src(i);
+  $("prev").textContent = offset === 0 ? "‹ Yesterday" : "‹ Previous";
+  $("next").textContent = offset < 0 ? (offset === -1 ? "Today ›" : "Next ›") : offset === 0 ? "Tomorrow ›" : "Next ›";
+
+  const amen = $("amen");
+  if (offset > 0) { amen.hidden = true; }
+  else {
+    amen.hidden = false;
+    const isDone = done[key] !== undefined;
+    amen.className = "pill " + (isDone ? "done" : "primary");
+    amen.textContent = isDone ? "✓ Proclaimed. Amen!" : offset === 0 ? "Amen, I proclaimed it" : "Mark as proclaimed";
+  }
+
+  const cyc = cardsDoneThisCycle();
+  $("barfill").style.width = `${(cyc.size / TOTAL) * 100}%`;
+  $("progtext").textContent = `${cyc.size} of ${TOTAL} proclaimed this round`;
+  $("streak").textContent = streak();
+  [i + 1, i - 1].forEach(n => { const im = new Image(); im.src = src((n + TOTAL) % TOTAL); });
+}
+
+function buildGrid() {
+  const g = $("grid"); g.innerHTML = ""; const t = cardFor(new Date()); const cyc = cardsDoneThisCycle();
+  for (let i = 0; i < TOTAL; i++) {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "thumb" + (i === t ? " today" : "");
+    b.setAttribute("aria-label", `Read card ${i + 1}`);
+    b.innerHTML = `<img loading="lazy" src="${src(i)}" alt=""><span>${i === t ? "Today" : i + 1}</span>${cyc.has(i) ? '<span class="tick">✓</span>' : ""}`;
+    b.onclick = () => openReader(i);
+    g.appendChild(b);
+  }
+}
+
+function openReader(i) { $("rimg").src = src(i); $("rnum").textContent = `Card ${i + 1} of ${TOTAL}`; $("reader").hidden = false; $("reader").scrollTop = 0; }
+function show(tab) {
+  const lib = tab === "lib";
+  $("view-today").hidden = lib; $("view-lib").hidden = !lib;
+  $("view-lib").style.display = lib ? "flex" : "";
+  $("tab-today").setAttribute("aria-selected", String(!lib)); $("tab-lib").setAttribute("aria-selected", String(lib));
+  if (lib) buildGrid();
+  window.scrollTo(0, 0);
+}
+
+$("prev").onclick = () => { offset--; render(); };
+$("next").onclick = () => { offset++; render(); };
+$("amen").onclick = () => {
+  const key = dayKey(viewDate());
+  if (done[key] !== undefined) delete done[key]; else done[key] = cardFor(viewDate());
+  save(done); render();
+};
+$("card").onclick = () => openReader(cardFor(viewDate()));
+$("back").onclick = () => { $("reader").hidden = true; };
+$("tab-today").onclick = () => { offset = 0; render(); show("today"); };
+$("tab-lib").onclick = () => show("lib");
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") $("reader").hidden = true;
+  if ($("reader").hidden && !$("view-today").hidden) { if (e.key === "ArrowLeft") $("prev").click(); if (e.key === "ArrowRight") $("next").click(); }
+});
+let sx = null;
+$("card").addEventListener("touchstart", e => { sx = e.touches[0].clientX; }, { passive: true });
+$("card").addEventListener("touchend", e => {
+  if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; sx = null;
+  if (Math.abs(dx) > 60) { e.preventDefault(); dx < 0 ? $("next").click() : $("prev").click(); }
+});
+let lastDay = dayKey(new Date());
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden && dayKey(new Date()) !== lastDay) { lastDay = dayKey(new Date()); offset = 0; render(); }
+});
+render();
+</script>
+
+</body>
+</html>
